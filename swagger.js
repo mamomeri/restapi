@@ -1,15 +1,19 @@
 const swaggerAutogen = require('swagger-autogen')()
 
-const doc = {
-  "info": {
-    "title": 'REST API',
-    "description": 'REST API with Express and Firestore'
-  },
-  "host": 'restapi-1-snjx.onrender.com',
-  "basePath": "/api",
-};
+ const doc = {
+   "info": {
+     "title": 'REST API',
+     "description": 'REST API with Express and Firestore'
+   },
+   //"host": 'localhost:5500',
+   "host": 'restapi-1-snjx.onrender.com',
+   "schemes": [
+     "https"
+   ],
+   "basePath": "/api",
+ };
 
-const outputFile = './swagger_output.json'
-const endpointsFiles = ['./routes/*.js']
+ const outputFile = './swagger_output.json'
+ const endpointsFiles = ['./routes/*.js']
 
-swaggerAutogen(outputFile, endpointsFiles, doc)
+ swaggerAutogen(outputFile, endpointsFiles, doc)

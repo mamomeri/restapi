@@ -5,67 +5,107 @@
     "description": "REST API with Express and Firestore",
     "version": "1.0.0"
   },
-  "host": "restapi-1-snjx.onrender.com",
+  "host": "restapi-o8ud.onrender.com",
   "basePath": "/api",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/items": {
       "post": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Create an item",
+        "description": "Create an item",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Data to create an item",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Item successfully created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
           }
         }
       },
       "get": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get all items entries",
+        "description": "Get all items entries",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Items entries successfully obtained"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
           }
         }
       }
     },
     "/items/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get an item entry",
+        "description": "Get an item entry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Item id"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Get an item by id"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Item not found"
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Update an item entry",
+        "description": "Update an item entry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         ],
         "responses": {
@@ -78,13 +118,18 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Items"
+        ],
+        "summary": "Delete an item entry",
+        "description": "Delete an item entry",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
